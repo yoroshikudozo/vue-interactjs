@@ -1,4 +1,6 @@
-import { VueConstructor, PluginObject } from "vue";
+import getInteractComponent from "@/interact";
+import interact from "interactjs";
+import { PluginObject, VueConstructor } from "vue";
 
 declare global {
   interface Window {
@@ -9,19 +11,9 @@ declare global {
 const version = "__VERSION__";
 
 const install = (Vue: VueConstructor): void => {
-  /*
-   * NOTE:
-   *   if you need to extend Vue contstructor, you can extend it in here.
-   */
+  const InteractComponent = getInteractComponent(interact);
 
-  Vue.prototype.$add = (a: number, b: number): number => {
-    return a + b;
-  };
-
-  /*
-   * NOTE:
-   *  somthing implementation here ...
-   */
+  Vue.component("Interact", InteractComponent);
 };
 
 const plugin: PluginObject<VueConstructor> = {

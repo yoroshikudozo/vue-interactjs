@@ -28,9 +28,11 @@
     "types/index.d.ts"
   ],
   "dependencies": {
-    "core-js": "^3.6.5"
+    "core-js": "^3.6.5",
+    "interactjs": "^1.9.22"
   },
   "devDependencies": {
+    "@interactjs/types": "^1.9.22",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -51,9 +53,9 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue": "^2.6.11",
     "vue-cli-plugin-p11n": "~0.4.0",
-    "vue-template-compiler": "^2.6.11",
-    "vue": "^2.6.11"
+    "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
