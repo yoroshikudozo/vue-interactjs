@@ -8,18 +8,27 @@
         <pixel-drawing />
       </div>
     </section>
+
+    <section class="demo-item">
+      <header><h2>Dragging</h2></header>
+      <div class="body">
+        <demo-dragging />
+      </div>
+    </section>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import PixelDrawing from "./components/PixelDrawing.vue";
+import Dragging from "./components/Dragging.vue";
 
 export default Vue.extend({
   name: "demo",
 
   components: {
-    PixelDrawing
+    PixelDrawing,
+    DemoDragging: Dragging
   }
 });
 </script>
