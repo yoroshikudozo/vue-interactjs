@@ -1,32 +1,16 @@
+import { bindInteractEvents } from "@/utils";
 import {
   DraggableOptions,
   DropzoneOptions,
   GesturableOptions,
   Interactable,
   InteractStatic,
-  ResizableOptions
+  ResizableOptions,
+  Target
 } from "@interactjs/types";
 import Vue, { CreateElement, PropType, VNode } from "vue";
 
 const InteractInstance = "InteractInstance" as const;
-
-const dragEvents = ["dragstart", "dragmove", "draginertiastart", "dragend"];
-const resizeEvents = [
-  "resizestart",
-  "resizemove",
-  "resizeinertiastart",
-  "resizeend"
-];
-const gestureEvents = ["gesturestart", "gesturemove", "gestureend"];
-const allEvents = dragEvents.concat(resizeEvents).concat(gestureEvents);
-
-export const bindInteractEvents = (interact: Interactable, emit: any): void => {
-  allEvents.forEach(eventName => {
-    interact.on(eventName, (...args: any[]) => {
-      emit(eventName, ...args);
-    });
-  });
-};
 
 export default function getInteractComponent(interact: InteractStatic) {
   return Vue.extend({
@@ -85,7 +69,7 @@ export default function getInteractComponent(interact: InteractStatic) {
 
     methods: {
       initInteract() {
-        this.interactInstance = interact(this.$el as HTMLElement);
+        this.interactInstance = interact(this.$el as Target);
         bindInteractEvents(this.interactInstance, this.$emit.bind(this));
         this.$emit("ready", this.interactInstance);
       },
@@ -106,10 +90,7 @@ export default function getInteractComponent(interact: InteractStatic) {
     render(createElement: CreateElement): VNode {
       return createElement(
         this.tag,
-        {
-          staticClass: "interact",
-          on: {}
-        },
+        { staticClass: "interact" },
         this.$slots.default
       );
     }
