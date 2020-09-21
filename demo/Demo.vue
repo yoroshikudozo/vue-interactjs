@@ -2,7 +2,7 @@
   <div class="demo">
     <h1>Plugin Demo</h1>
 
-    <section>
+    <section class="demo-item">
       <header><h2>Pixel drawing</h2></header>
       <div class="body">
         <pixel-drawing />
@@ -24,16 +24,11 @@ export default Vue.extend({
 });
 </script>
 
-<style>
-.rainbow-pixel-canvas {
-  width: 400px;
-  height: 200px;
-  border: solid 2px gray;
-  box-sizing: border-box;
-  background: white;
-
-  user-select: none;
-  -ms-touch-action: none;
-  touch-action: none;
+<style scoped>
+.demo-item {
+  margin-bottom: 2em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  background: #eee;
 }
 </style>
