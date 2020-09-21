@@ -1,5 +1,5 @@
 <template>
-  <div class="dragging">
+  <div class="drag-and-drop">
     <interact
       draggable
       :dragOption="options"
@@ -63,7 +63,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.dragging {
+.drag-and-drop {
   width: 400px;
   height: 400px;
   border: solid 2px gray;
