@@ -29,6 +29,13 @@
         <demo-snapping />
       </div>
     </section>
+
+    <section class="demo-item">
+      <header><h2>Resizing</h2></header>
+      <div class="body">
+        <demo-resizing />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -38,6 +45,7 @@ import PixelDrawing from "./components/PixelDrawing.vue";
 import Dragging from "./components/Dragging.vue";
 import DragAndDrop from "./components/DragAndDrop.vue";
 import Snapping from "./components/Snapping.vue";
+import Resizing from "./components/Resizing.vue";
 
 export default Vue.extend({
   name: "demo",
@@ -46,7 +54,8 @@ export default Vue.extend({
     PixelDrawing,
     DemoDragging: Dragging,
     DragAndDrop,
-    DemoSnapping: Snapping
+    DemoSnapping: Snapping,
+    DemoResizing: Resizing
   }
 });
 </script>
