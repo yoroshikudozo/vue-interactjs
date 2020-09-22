@@ -36,6 +36,13 @@
         <demo-resizing />
       </div>
     </section>
+
+    <section class="demo-item">
+      <header><h2>Multi-touch Rotation (touchscreen only)</h2></header>
+      <div class="body">
+        <multi-touch />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -46,6 +53,7 @@ import Dragging from "./components/Dragging.vue";
 import DragAndDrop from "./components/DragAndDrop.vue";
 import Snapping from "./components/Snapping.vue";
 import Resizing from "./components/Resizing.vue";
+import MultiTouch from "./components/MultiTouch.vue";
 
 export default Vue.extend({
   name: "demo",
@@ -55,7 +63,8 @@ export default Vue.extend({
     DemoDragging: Dragging,
     DragAndDrop,
     DemoSnapping: Snapping,
-    DemoResizing: Resizing
+    DemoResizing: Resizing,
+    MultiTouch
   }
 });
 </script>
