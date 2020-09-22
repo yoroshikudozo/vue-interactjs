@@ -43,6 +43,13 @@
         <multi-touch />
       </div>
     </section>
+
+    <section class="demo-item">
+      <header><h2>Pinch-to-zoom (touchscreen only)</h2></header>
+      <div class="body">
+        <pinch-to-zoom />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -54,6 +61,7 @@ import DragAndDrop from "./components/DragAndDrop.vue";
 import Snapping from "./components/Snapping.vue";
 import Resizing from "./components/Resizing.vue";
 import MultiTouch from "./components/MultiTouch.vue";
+import PinchToZoom from "./components/PinchToZoom.vue";
 
 export default Vue.extend({
   name: "demo",
@@ -64,7 +72,8 @@ export default Vue.extend({
     DragAndDrop,
     DemoSnapping: Snapping,
     DemoResizing: Resizing,
-    MultiTouch
+    MultiTouch,
+    PinchToZoom
   }
 });
 </script>
