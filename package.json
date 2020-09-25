@@ -1,19 +1,38 @@
 {
   "name": "vue-interactjs",
   "version": "0.1.0",
-  "private": true,
+  "author": "yoroshikudozo",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "demo": "vue-cli-service demo Demo.vue",
+    "docs": "npm run docs:serve",
+    "docs:build": "vue-cli-service docs --mode build",
+    "docs:serve": "vue-cli-service docs --mode serve",
+    "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build",
+    "start": "vue-cli-service serve"
   },
+  "main": "dist/vue-interactjs.common.js",
+  "module": "dist/vue-interactjs.esm.js",
+  "unpkg": "dist/vue-interactjs.umd.min.js",
+  "files": [
+    "dist/vue-interactjs.common.js",
+    "dist/vue-interactjs.umd.min.js",
+    "dist/vue-interactjs.umd.js",
+    "dist/vue-interactjs.esm.js",
+    "src",
+    "types/index.d.ts"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "interactjs": "^1.9.22"
   },
   "devDependencies": {
+    "@interactjs/types": "^1.9.22",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -34,15 +53,20 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue": "^2.6.11",
+    "vue-cli-plugin-p11n": "~0.4.0",
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "jsdelivr": "dist/vue-interactjs.umd.min.js",
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "sideeffects": false,
+  "types": "types/index.d.ts"
 }
