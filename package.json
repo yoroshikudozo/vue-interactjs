@@ -1,21 +1,18 @@
 {
   "name": "vue-interactjs",
+  "description": "interactjs component for Vue",
   "version": "0.1.0",
-  "author": "yoroshikudozo",
+  "keywords": [
+    "interact",
+    "interactjs",
+    "vue",
+    "drag and drop",
+    "resize",
+    "gesture",
+    "vue-cli-plugin-p11n"
+  ],
   "license": "MIT",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint",
-    "demo": "vue-cli-service demo Demo.vue",
-    "docs": "npm run docs:serve",
-    "docs:build": "vue-cli-service docs --mode build",
-    "docs:serve": "vue-cli-service docs --mode serve",
-    "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build",
-    "start": "vue-cli-service serve"
-  },
+  "author": "yoroshikudozo",
   "main": "dist/vue-interactjs.common.js",
   "module": "dist/vue-interactjs.esm.js",
   "unpkg": "dist/vue-interactjs.umd.min.js",
@@ -27,6 +24,19 @@
     "src",
     "types/index.d.ts"
   ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "demo": "vue-cli-service demo Demo.vue",
+    "docs": "npm run docs:serve",
+    "docs:build": "NODE_ENV=production vue-cli-service docs --mode build",
+    "docs:serve": "vue-cli-service docs --mode serve",
+    "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build",
+    "start": "vue-cli-service serve"
+  },
   "dependencies": {
     "core-js": "^3.6.5",
     "interactjs": "^1.9.22"
