@@ -1,7 +1,7 @@
 {
   "name": "vue-interactjs",
   "description": "interactjs component for Vue",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "keywords": [
     "interact",
     "interactjs",
@@ -34,15 +34,13 @@
     "docs": "npm run docs:serve",
     "docs:build": "NODE_ENV=production vue-cli-service docs --mode build",
     "docs:serve": "vue-cli-service docs --mode serve",
-    "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build",
+    "prepublish": "npm run lint && npm run docs:build && npm run build",
     "start": "vue-cli-service serve"
   },
   "dependencies": {
-    "core-js": "^3.6.5"
-  },
-  "peerDependencies": {
+    "core-js": "^3.6.5",
     "interactjs": "^1.9.22",
-    "vue": "2.x"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@interactjs/types": "^1.9.22",
@@ -66,7 +64,6 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
-    "vue": "^2.6.11",
     "vue-cli-plugin-p11n": "~0.4.0",
     "vue-template-compiler": "^2.6.11"
   },
