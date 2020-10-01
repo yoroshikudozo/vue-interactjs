@@ -67,6 +67,10 @@ export default function getInteractComponent(interact: InteractStatic) {
       if (this.gesturable) this.initGesture();
     },
 
+    destroyed() {
+      this.interactInstance?.unset();
+    },
+
     methods: {
       initInteract() {
         this.interactInstance = interact(this.$el as Target);
