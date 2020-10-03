@@ -38,6 +38,13 @@
     </section>
 
     <section class="demo-item">
+      <header><h2>On/Off</h2></header>
+      <div class="body">
+        <on-off />
+      </div>
+    </section>
+
+    <section class="demo-item">
       <header><h2>Multi-touch Rotation (touchscreen only)</h2></header>
       <div class="body">
         <multi-touch />
@@ -60,6 +67,7 @@ import Dragging from "./components/Dragging.vue";
 import DragAndDrop from "./components/DragAndDrop.vue";
 import Snapping from "./components/Snapping.vue";
 import Resizing from "./components/Resizing.vue";
+import OnOff from "./components/OnOff.vue";
 import MultiTouch from "./components/MultiTouch.vue";
 import PinchToZoom from "./components/PinchToZoom.vue";
 
@@ -72,6 +80,7 @@ export default Vue.extend({
     DragAndDrop,
     DemoSnapping: Snapping,
     DemoResizing: Resizing,
+    OnOff,
     MultiTouch,
     PinchToZoom
   }

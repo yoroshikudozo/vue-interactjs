@@ -1,6 +1,6 @@
 # vue-interactjs
 
-Vue-interactjs is a **[interactjs](https://interactjs.io/)** component for [Vue](http://vuejs.org).
+Vue-interactjs is **[interact.js](https://interactjs.io/)** component for [Vue](http://vuejs.org).
 
 # Install
 
@@ -137,11 +137,11 @@ new Vue({}).$mount("#app");
 <!-- Add draggable / resizable / gesturable, then interact.js events are enabled -->
 <!-- Options are passed to interact.js option -->
 <interact
-  draggable
+  :draggable="draggable"
   :dragOption="dragOption"
-  resizable
+  :resizable="resizable"
   :resizeOption="resizeOption"
-  gesturable
+  :gesturable="gesturable"
   :gestureOption="resizeOption"
 />
 ```

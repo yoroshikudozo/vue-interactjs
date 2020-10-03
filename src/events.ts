@@ -1,12 +1,17 @@
-const dragEvents = ["dragstart", "dragmove", "draginertiastart", "dragend"];
-const resizeEvents = [
+export const dragEvents = [
+  "dragstart",
+  "dragmove",
+  "draginertiastart",
+  "dragend"
+];
+export const resizeEvents = [
   "resizestart",
   "resizemove",
   "resizeinertiastart",
   "resizeend"
 ];
-const gestureEvents = ["gesturestart", "gesturemove", "gestureend"];
-const pointerEvents = [
+export const gestureEvents = ["gesturestart", "gesturemove", "gestureend"];
+export const pointerEvents = [
   "down",
   "move",
   "up",
@@ -15,7 +20,3 @@ const pointerEvents = [
   "doubletap",
   "hold"
 ];
-export const allEvents = dragEvents
-  .concat(resizeEvents)
-  .concat(gestureEvents)
-  .concat(pointerEvents);
