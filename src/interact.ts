@@ -1,4 +1,9 @@
-import { bindInteractEvents } from "@/utils";
+import {
+  bindDragEvents,
+  bindGestureEvents,
+  bindPointerEvents,
+  bindResizeEvents
+} from "@/utils";
 import {
   DraggableOptions,
   DropzoneOptions,
@@ -59,35 +64,73 @@ export default function getInteractComponent(interact: InteractStatic) {
       }
     },
 
+    watch: {
+      draggable() {
+        this.reset();
+      },
+      resizable() {
+        this.reset();
+      },
+      gesturable() {
+        this.reset();
+      },
+      droppable() {
+        this.reset();
+      }
+    },
+
     mounted() {
-      if (!this.interactInstance) this.initInteract();
-      if (this.draggable) this.initDrag();
-      if (this.resizable) this.initResize();
-      if (this.droppable) this.initDrop();
-      if (this.gesturable) this.initGesture();
+      this.init();
     },
 
     destroyed() {
-      this.interactInstance?.unset();
+      this.destroy();
     },
 
     methods: {
+      init() {
+        if (!this.interactInstance) this.initInteract();
+        if (this.draggable) this.initDrag();
+        if (this.resizable) this.initResize();
+        if (this.droppable) this.initDrop();
+        if (this.gesturable) this.initGesture();
+      },
       initInteract() {
         this.interactInstance = interact(this.$el as Target);
-        bindInteractEvents(this.interactInstance, this.$emit.bind(this));
+        bindPointerEvents(this.interactInstance, this.$emit.bind(this));
         this.$emit("ready", this.interactInstance);
       },
       initDrag() {
         this.interactInstance?.draggable(this.dragOption);
+        bindDragEvents(
+          this.interactInstance as Interactable,
+          this.$emit.bind(this)
+        );
       },
       initResize() {
         this.interactInstance?.resizable(this.resizeOption);
+        bindResizeEvents(
+          this.interactInstance as Interactable,
+          this.$emit.bind(this)
+        );
       },
       initDrop() {
         this.interactInstance?.dropzone(this.dropOption);
       },
       initGesture() {
         this.interactInstance?.gesturable(this.gestureOption);
+        bindGestureEvents(
+          this.interactInstance as Interactable,
+          this.$emit.bind(this)
+        );
+      },
+      reset() {
+        this.destroy();
+        this.init();
+      },
+      destroy() {
+        this.interactInstance?.unset();
+        this.interactInstance = null;
       }
     },
 
