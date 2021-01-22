@@ -51,8 +51,7 @@ export default Vue.extend({
         (parseFloat(target.getAttribute("data-y") as string) || 0) + event.dy;
 
       // translate the element
-      target.style.webkitTransform = target.style.transform =
-        "translate(" + x + "px, " + y + "px)";
+      target.style.transform = "translate(" + x + "px, " + y + "px)";
 
       // update the posiion attributes
       target.setAttribute("data-x", String(x));
@@ -84,7 +83,6 @@ export default Vue.extend({
   padding: 4%;
   touch-action: none;
   user-select: none;
-  -webkit-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
 </style>

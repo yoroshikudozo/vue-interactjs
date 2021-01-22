@@ -139,7 +139,6 @@ export default Vue.extend({
   padding: 4%;
   touch-action: none;
   user-select: none;
-  -webkit-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
 #outer-dropzone {
