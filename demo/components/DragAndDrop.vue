@@ -24,6 +24,12 @@
       class="dropzone"
       droppable
       :dropOption="dropOption"
+      @dragmove="dragmove"
+      @dropactivate="dropactivate"
+      @dragenter="dragenter"
+      @dragleave="dragleave"
+      @drop="drop"
+      @dropdeactivate="dropdeactivate"
     >
       #outer-dropzone
       <interact
@@ -41,8 +47,8 @@
 <script lang="ts">
 import Vue from "vue";
 import interact from "interactjs";
-import { InteractEvent } from "@interactjs/types";
 import { DropEvent } from "@interactjs/actions/drop/DropEvent";
+import { DragEvent } from "@interactjs/actions/drag/plugin";
 
 export default Vue.extend({
   name: "DragAndDrop",
@@ -60,41 +66,11 @@ export default Vue.extend({
     dropOption: {
       accept: "#yes-drop",
       // Require a 75% element overlap for a drop to be possible
-      overlap: 0.75,
-
-      // listen for drop related events:
-
-      ondropactivate: function(event: DropEvent) {
-        // add active dropzone feedback
-        event.target.classList.add("drop-active");
-      },
-      ondragenter: function(event: DropEvent) {
-        const draggableElement = event.relatedTarget;
-        const dropzoneElement = event.target;
-
-        // feedback the possibility of a drop
-        dropzoneElement.classList.add("drop-target");
-        draggableElement.classList.add("can-drop");
-        draggableElement.textContent = "Dragged in";
-      },
-      ondragleave: function(event: DropEvent) {
-        // remove the drop feedback style
-        event.target.classList.remove("drop-target");
-        event.relatedTarget.classList.remove("can-drop");
-        event.relatedTarget.textContent = "Dragged out";
-      },
-      ondrop: function(event: DropEvent) {
-        event.relatedTarget.textContent = "Dropped";
-      },
-      ondropdeactivate: function(event: DropEvent) {
-        // remove active dropzone feedback
-        event.target.classList.remove("drop-active");
-        event.target.classList.remove("drop-target");
-      }
+      overlap: 0.75
     }
   }),
   methods: {
-    dragmove(event: InteractEvent<"drag">) {
+    dragmove(event: DragEvent) {
       const target = event.target;
       // keep the dragged position in the data-x/data-y attributes
       const x =
@@ -103,12 +79,40 @@ export default Vue.extend({
         (parseFloat(target.getAttribute("data-y") as string) || 0) + event.dy;
 
       // translate the element
-      target.style.webkitTransform = target.style.transform =
-        "translate(" + x + "px, " + y + "px)";
+      target.style.transform = "translate(" + x + "px, " + y + "px)";
 
       // update the posiion attributes
       target.setAttribute("data-x", String(x));
       target.setAttribute("data-y", String(y));
+    },
+    dropactivate: function(event: DropEvent) {
+      // add active dropzone feedback
+      event.target.classList.add("drop-active");
+    },
+    dragenter: function(event: DropEvent) {
+      const draggableElement = event.relatedTarget;
+      const dropzoneElement = event.target;
+
+      // feedback the possibility of a drop
+      dropzoneElement.classList.add("drop-target");
+      if (draggableElement) {
+        draggableElement.classList.add("can-drop");
+        draggableElement.textContent = "Dragged in";
+      }
+    },
+    dragleave: function(event: DropEvent) {
+      // remove the drop feedback style
+      event.target.classList.remove("drop-target");
+      event.relatedTarget.classList.remove("can-drop");
+      event.relatedTarget.textContent = "Dragged out";
+    },
+    drop: function(event: DropEvent) {
+      event.relatedTarget.textContent = "Dropped";
+    },
+    dropdeactivate: function(event: DropEvent) {
+      // remove active dropzone feedback
+      event.target.classList.remove("drop-active");
+      event.target.classList.remove("drop-target");
     }
   }
 });
