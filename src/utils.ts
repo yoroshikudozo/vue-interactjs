@@ -7,51 +7,56 @@ import {
 } from "@/events";
 import { Interactable } from "@interactjs/types";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const bindPointerEvents = (interact: Interactable, emit: any): void => {
+export const bindPointerEvents = (
+  interact: Interactable,
+  emit: Vue["$emit"]
+): void => {
   pointerEvents.forEach(eventName => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    interact.on(eventName, (...args: any[]) => {
+    interact.on(eventName, (...args: unknown[]) => {
       emit(eventName, ...args);
     });
   });
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const bindDragEvents = (interact: Interactable, emit: any): void => {
+export const bindDragEvents = (
+  interact: Interactable,
+  emit: Vue["$emit"]
+): void => {
   dragEvents.forEach(eventName => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    interact.on(eventName, (...args: any[]) => {
+    interact.on(eventName, (...args: unknown[]) => {
       emit(eventName, ...args);
     });
   });
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const bindDropEvents = (interact: Interactable, emit: any): void => {
+export const bindDropEvents = (
+  interact: Interactable,
+  emit: Vue["$emit"]
+): void => {
   dropEvents.forEach(eventName => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    interact.on(eventName, (...args: any[]) => {
+    interact.on(eventName, (...args: unknown[]) => {
       emit(eventName, ...args);
     });
   });
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const bindResizeEvents = (interact: Interactable, emit: any): void => {
+export const bindResizeEvents = (
+  interact: Interactable,
+  emit: Vue["$emit"]
+): void => {
   resizeEvents.forEach(eventName => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    interact.on(eventName, (...args: any[]) => {
+    interact.on(eventName, (...args: unknown[]) => {
       emit(eventName, ...args);
     });
   });
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const bindGestureEvents = (interact: Interactable, emit: any): void => {
+export const bindGestureEvents = (
+  interact: Interactable,
+  emit: Vue["$emit"]
+): void => {
   gestureEvents.forEach(eventName => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    interact.on(eventName, (...args: any[]) => {
+    interact.on(eventName, (...args: unknown[]) => {
       emit(eventName, ...args);
     });
   });
