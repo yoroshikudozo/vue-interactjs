@@ -20,7 +20,7 @@ $ yarn add vue-interactjs
 
 ```html
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.js"></script>
+<script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.umd.js"></script>
 ```
 
 # Registration
@@ -29,9 +29,9 @@ $ yarn add vue-interactjs
 
 ```javascript
 import Vue from "vue";
-import vueInteractjs from "vue-interactjs";
+import VueInteractJs from "vue-interactjs";
 
-Vue.use(vueInteractjs);
+Vue.use(VueInteractJs);
 
 // Now the app has started!
 new Vue({}).$mount("#app");
@@ -41,7 +41,7 @@ new Vue({}).$mount("#app");
 
 ```html
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.js"></script>
+<script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.umd.js"></script>
 
 <div id="#app">
   Vue.use(window.vueInteractjs)
@@ -160,6 +160,14 @@ new Vue({}).$mount("#app");
   @hold="hold"
   ...
 />
+```
+
+## See Demo
+
+Clone this repository and run command
+
+```sh
+$ npm run demo
 ```
 
 ## interact.js API
