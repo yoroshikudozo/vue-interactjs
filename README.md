@@ -97,7 +97,6 @@ new Vue({}).$mount("#app");
           height: `${this.h}px`,
           width: `${this.w}px`,
           transform: `translate(${this.x}px, ${this.y}px)`,
-          webkitTransform: `translate(${this.x}px, ${this.y}px)`
         };
       }
     },

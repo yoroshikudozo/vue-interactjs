@@ -31,8 +31,7 @@ export default Vue.extend({
   computed: {
     style() {
       return {
-        transform: `rotate(${this.angle}deg)`,
-        webkitTransform: `rotate(${this.angle}deg)`
+        transform: `rotate(${this.angle}deg)`
       };
     }
   },

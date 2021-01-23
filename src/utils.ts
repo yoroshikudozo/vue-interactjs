@@ -1,5 +1,6 @@
 import {
   dragEvents,
+  dropEvents,
   gestureEvents,
   pointerEvents,
   resizeEvents
@@ -19,6 +20,16 @@ export const bindPointerEvents = (interact: Interactable, emit: any): void => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const bindDragEvents = (interact: Interactable, emit: any): void => {
   dragEvents.forEach(eventName => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    interact.on(eventName, (...args: any[]) => {
+      emit(eventName, ...args);
+    });
+  });
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const bindDropEvents = (interact: Interactable, emit: any): void => {
+  dropEvents.forEach(eventName => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     interact.on(eventName, (...args: any[]) => {
       emit(eventName, ...args);

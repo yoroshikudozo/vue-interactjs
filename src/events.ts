@@ -10,6 +10,14 @@ export const resizeEvents = [
   "resizeinertiastart",
   "resizeend"
 ];
+export const dropEvents = [
+  "dropactivate",
+  "dropdeactivate",
+  "dragenter",
+  "dragleave",
+  "dropmove",
+  "drop"
+];
 export const gestureEvents = ["gesturestart", "gesturemove", "gestureend"];
 export const pointerEvents = [
   "down",

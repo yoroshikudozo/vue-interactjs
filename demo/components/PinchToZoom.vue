@@ -51,14 +51,12 @@ export default Vue.extend({
   computed: {
     areaStyle() {
       return {
-        transform: `translate(${this.x}px, ${this.y}px)`,
-        webkitTransform: `translate(${this.x}px, ${this.y}px)`
+        transform: `translate(${this.x}px, ${this.y}px)`
       };
     },
     imageStyle() {
       return {
-        transform: getTransform(this.angle, this.scale),
-        webkitTransform: getTransform(this.angle, this.scale)
+        transform: getTransform(this.angle, this.scale)
       };
     }
   },
@@ -113,7 +111,6 @@ export default Vue.extend({
   display: block;
   max-width: 100%;
   margin: auto;
-  transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
 .scale-element.touching {

@@ -45,7 +45,7 @@ export default Vue.extend({
       this.x += event.dx;
       this.y += event.dy;
 
-      event.target.style.webkitTransform = event.target.style.transform =
+      event.target.style.transform =
         "translate(" + this.x + "px, " + this.y + "px)";
     }
   }

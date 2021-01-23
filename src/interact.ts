@@ -1,5 +1,6 @@
 import {
   bindDragEvents,
+  bindDropEvents,
   bindGestureEvents,
   bindPointerEvents,
   bindResizeEvents
@@ -116,6 +117,10 @@ export default function getInteractComponent(interact: InteractStatic) {
       },
       initDrop() {
         this.interactInstance?.dropzone(this.dropOption);
+        bindDropEvents(
+          this.interactInstance as Interactable,
+          this.$emit.bind(this)
+        );
       },
       initGesture() {
         this.interactInstance?.gesturable(this.gestureOption);
