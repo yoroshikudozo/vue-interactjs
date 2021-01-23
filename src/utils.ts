@@ -7,57 +7,19 @@ import {
 } from "@/events";
 import { Interactable } from "@interactjs/types";
 
-export const bindPointerEvents = (
+const bindEvents = (events: string[]) => (
   interact: Interactable,
   emit: Vue["$emit"]
 ): void => {
-  pointerEvents.forEach(eventName => {
+  events.forEach(eventName => {
     interact.on(eventName, (...args: unknown[]) => {
       emit(eventName, ...args);
     });
   });
 };
 
-export const bindDragEvents = (
-  interact: Interactable,
-  emit: Vue["$emit"]
-): void => {
-  dragEvents.forEach(eventName => {
-    interact.on(eventName, (...args: unknown[]) => {
-      emit(eventName, ...args);
-    });
-  });
-};
-
-export const bindDropEvents = (
-  interact: Interactable,
-  emit: Vue["$emit"]
-): void => {
-  dropEvents.forEach(eventName => {
-    interact.on(eventName, (...args: unknown[]) => {
-      emit(eventName, ...args);
-    });
-  });
-};
-
-export const bindResizeEvents = (
-  interact: Interactable,
-  emit: Vue["$emit"]
-): void => {
-  resizeEvents.forEach(eventName => {
-    interact.on(eventName, (...args: unknown[]) => {
-      emit(eventName, ...args);
-    });
-  });
-};
-
-export const bindGestureEvents = (
-  interact: Interactable,
-  emit: Vue["$emit"]
-): void => {
-  gestureEvents.forEach(eventName => {
-    interact.on(eventName, (...args: unknown[]) => {
-      emit(eventName, ...args);
-    });
-  });
-};
+export const bindPointerEvents = bindEvents(pointerEvents);
+export const bindDragEvents = bindEvents(dragEvents);
+export const bindDropEvents = bindEvents(dropEvents);
+export const bindResizeEvents = bindEvents(resizeEvents);
+export const bindGestureEvents = bindEvents(gestureEvents);
